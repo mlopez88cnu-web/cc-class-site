@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lopez Group | B2B Digital Marketing Agency</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 6%;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e8e8ef;
+    }
+
+    nav .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo span {
+      color: #4f46e5;
+    }
+
+    nav a.cta-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4f46e5;
+      text-decoration: none;
+      border: 2px solid #4f46e5;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a.cta-link:hover {
+      background: #4f46e5;
+      color: #fff;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 6% 5rem;
+      background: linear-gradient(168deg, #f8f8ff 0%, #eef2ff 100%);
+    }
+
+    .hero .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4f46e5;
+      background: #e0e7ff;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 780px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #4a4a68;
+      max-width: 600px;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: #4f46e5;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #4338ca;
+      transform: translateY(-1px);
+    }
+
+    /* ── Section defaults ── */
+    section {
+      padding: 5rem 6%;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #4f46e5;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      max-width: 620px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: #4a4a68;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── What We Do ── */
+    .what-we-do {
+      background: #fff;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: #f8f8ff;
+      border: 1px solid #e8e8ef;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(79, 70, 229, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .card .icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4a4a68;
+    }
+
+    /* ── Why It Matters ── */
+    .why-it-matters {
+      background: #f8f8ff;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+    }
+
+    .reason {
+      position: relative;
+      padding-left: 1.75rem;
+    }
+
+    .reason::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.25rem;
+      width: 4px;
+      height: 100%;
+      background: #4f46e5;
+      border-radius: 4px;
+    }
+
+    .reason h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .reason p {
+      font-size: 0.95rem;
+      color: #4a4a68;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center;
+      background: #1a1a2e;
+      color: #fff;
+      padding: 5rem 6%;
+    }
+
+    .cta .section-label {
+      color: #a5b4fc;
+    }
+
+    .cta .section-heading {
+      color: #fff;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta .section-sub {
+      color: #b0b0c8;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-light {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      background: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-light:hover {
+      background: #e0e7ff;
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 6%;
+      font-size: 0.85rem;
+      color: #8888a0;
+      background: #16162a;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero { padding: 4rem 6% 3.5rem; }
+      section { padding: 3.5rem 6%; }
+      .card-grid, .reasons { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo">The Lopez <span>Group</span></a>
+    <a href="#contact" class="cta-link">Get in Touch</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">B2B Digital Marketing Agency</div>
+    <h1>Pipeline growth your CFO will actually believe in.</h1>
+    <p>The Lopez Group helps B2B marketing leaders turn digital channels into predictable, measurable revenue engines&mdash;so you can report results, not excuses.</p>
+    <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+  </section>
+
+  <!-- What We Do -->
+  <section class="what-we-do">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-heading">Full-funnel digital marketing built for complex B2B sales cycles.</h2>
+    <p class="section-sub">We don't do cookie-cutter campaigns. Every engagement is designed around your ICP, your pipeline stages, and your revenue targets.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">&#9678;</div>
+        <h3>Demand Generation</h3>
+        <p>Paid media, content syndication, and ABM programs that fill your pipeline with qualified opportunities&mdash;not vanity leads.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#9670;</div>
+        <h3>SEO &amp; Content Strategy</h3>
+        <p>Search-driven content that captures high-intent buyers at the moment they're evaluating solutions like yours.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#9672;</div>
+        <h3>Marketing Ops &amp; Analytics</h3>
+        <p>Attribution modeling, CRM hygiene, and dashboards that connect every marketing dollar to closed-won revenue.</p>
+      </div>
+      <div class="card">
+        <div class="icon">&#10022;</div>
+        <h3>Conversion &amp; Web</h3>
+        <p>Landing pages, A/B testing, and website optimization that turn traffic into demo requests and sales conversations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="why-it-matters">
+    <p class="section-label">Why It Matters</p>
+    <h2 class="section-heading">Built for the problems VPs of Marketing actually face.</h2>
+    <p class="section-sub">You're under pressure to prove ROI, hit pipeline targets, and scale without ballooning headcount. We get it.</p>
+
+    <div class="reasons">
+      <div class="reason">
+        <h3>Revenue attribution, not vanity metrics</h3>
+        <p>We measure what matters: pipeline created, influenced revenue, and CAC payback. Every report ties back to dollars, not impressions.</p>
+      </div>
+      <div class="reason">
+        <h3>An extension of your team, not a black box</h3>
+        <p>You get a dedicated strategist, shared Slack channels, and full visibility into what's running and why. No mystery, no hand-waving.</p>
+      </div>
+      <div class="reason">
+        <h3>Speed without the hiring risk</h3>
+        <p>Spin up campaigns in days, not quarters. Get senior-level execution across paid, organic, and ops without three new headcount reqs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <p class="section-label">Ready to Talk?</p>
+    <h2 class="section-heading">Let's build a pipeline you can bet your board deck on.</h2>
+    <p class="section-sub">Book a 30-minute strategy call. We'll audit your current digital footprint and show you exactly where the growth is hiding.</p>
+    <a href="mailto:hello@thelopezgroup.com" class="btn-light">Book a Strategy Call</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 The Lopez Group. All rights reserved.
+  </footer>
+
+</body>
+</html>
