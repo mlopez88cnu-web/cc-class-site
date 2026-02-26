@@ -4,18 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Lopez Group | Pipeline Growth for B2B SaaS Marketing Leaders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --ink: #0a0f1c;
+      --ink-light: #1a2038;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d4;
+      --warm: #d4a574;
+      --accent: #e85d3a;
+      --accent-hover: #d14e2d;
+      --text: #c8c4bc;
+      --text-muted: #7a7670;
+      --text-dark: #3a3530;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Manrope', sans-serif;
+    }
+
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-      color: #1a1a2e;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Grain overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── Navigation ── */
@@ -23,329 +73,463 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 6%;
-      background: #fff;
-      position: sticky;
+      padding: 1.5rem 5%;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      border-bottom: 1px solid #e8e8ef;
+      background: rgba(10, 15, 28, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(200, 196, 188, 0.06);
     }
 
     nav .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1a1a2e;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--cream);
       text-decoration: none;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
-    nav .logo span {
-      color: #4f46e5;
-    }
-
-    nav a.cta-link {
-      font-size: 0.9rem;
+    nav .cta-link {
+      font-family: var(--sans);
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #4f46e5;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cream);
       text-decoration: none;
-      border: 2px solid #4f46e5;
-      padding: 0.5rem 1.25rem;
-      border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
+      border: 1px solid rgba(245, 240, 232, 0.25);
+      padding: 0.6rem 1.5rem;
+      transition: all 0.3s ease;
     }
 
-    nav a.cta-link:hover {
-      background: #4f46e5;
-      color: #fff;
+    nav .cta-link:hover {
+      background: var(--cream);
+      color: var(--ink);
     }
 
     /* ── Hero ── */
     .hero {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 6rem 6% 5rem;
-      background: linear-gradient(168deg, #f8f8ff 0%, #eef2ff 100%);
+      justify-content: center;
+      padding: 8rem 5% 6rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero .badge {
-      display: inline-block;
-      font-size: 0.8rem;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(232, 93, 58, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .eyebrow {
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #4f46e5;
-      background: #e0e7ff;
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
     }
 
     .hero h1 {
-      font-size: clamp(2.25rem, 5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cream);
       max-width: 820px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
     }
 
-    .hero p {
-      font-size: 1.15rem;
-      color: #4a4a68;
-      max-width: 620px;
-      margin-bottom: 2.25rem;
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero .hero-text {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
     }
 
     .btn-primary {
       display: inline-block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      background: #4f46e5;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: #4338ca;
-      transform: translateY(-1px);
-    }
-
-    .hero-note {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: #7a7a96;
-    }
-
-    /* ── Section defaults ── */
-    section {
-      padding: 5rem 6%;
-    }
-
-    .section-label {
+      font-family: var(--sans);
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #4f46e5;
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      background: var(--accent);
+      padding: 1rem 2.25rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .section-heading {
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 1rem;
-      max-width: 660px;
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(232, 93, 58, 0.3);
     }
 
-    .section-sub {
-      font-size: 1.05rem;
-      color: #4a4a68;
-      max-width: 620px;
-      margin-bottom: 3rem;
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
-    /* ── Pain Points ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Shared section ── */
+    .section-pad {
+      padding: 7rem 5%;
+    }
+
+    .eyebrow-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .eyebrow-label::before {
+      content: '';
+      width: 2rem;
+      height: 1px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      max-width: 640px;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── Pain Points (cream bg) ── */
     .pain-points {
-      background: #fff;
+      background: var(--cream);
+      color: var(--ink);
+      position: relative;
+    }
+
+    .pain-points .eyebrow-label {
+      color: var(--accent);
+    }
+
+    .pain-points .eyebrow-label::before {
+      background: var(--accent);
+    }
+
+    .pain-points .section-title {
+      color: var(--ink);
+    }
+
+    .pain-points .section-desc {
+      color: var(--text-dark);
     }
 
     .pain-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
       max-width: 1100px;
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-dark);
     }
 
     .pain-card {
-      background: #fef8f8;
-      border: 1px solid #f0dede;
-      border-radius: 12px;
-      padding: 1.75rem;
+      background: var(--cream);
+      padding: 2.5rem;
     }
 
     .pain-card .pain-q {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 0.5rem;
+      font-family: var(--serif);
+      font-size: 1.15rem;
       font-style: italic;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
     }
 
-    .pain-card .pain-q::before {
-      content: '\201C';
+    .pain-card p:last-child {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      line-height: 1.65;
+      opacity: 0.75;
     }
 
-    .pain-card .pain-q::after {
-      content: '\201D';
-    }
-
-    .pain-card p {
-      font-size: 0.92rem;
-      color: #6a4a4a;
-      line-height: 1.55;
-    }
-
-    /* ── How We Solve It ── */
+    /* ── Solutions (dark bg) ── */
     .solutions {
-      background: #f8f8ff;
+      background: var(--ink-light);
+      position: relative;
+    }
+
+    .solutions::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40%;
+      height: 50%;
+      background: radial-gradient(ellipse at bottom left, rgba(232, 93, 58, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .solutions .eyebrow-label {
+      color: var(--warm);
+    }
+
+    .solutions .eyebrow-label::before {
+      background: var(--warm);
+    }
+
+    .solutions .section-title {
+      color: var(--cream);
+    }
+
+    .solutions .section-desc {
+      color: var(--text);
     }
 
     .solution-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
       max-width: 1100px;
     }
 
     .solution-card {
-      background: #fff;
-      border: 1px solid #e8e8ef;
-      border-radius: 12px;
-      padding: 2rem;
-      transition: box-shadow 0.2s, transform 0.15s;
+      border: 1px solid rgba(200, 196, 188, 0.08);
+      padding: 2.25rem;
+      transition: border-color 0.3s, background 0.3s;
+      position: relative;
     }
 
     .solution-card:hover {
-      box-shadow: 0 8px 28px rgba(79, 70, 229, 0.1);
-      transform: translateY(-3px);
+      border-color: rgba(232, 93, 58, 0.3);
+      background: rgba(232, 93, 58, 0.03);
     }
 
     .solution-card .your-problem {
-      font-size: 0.78rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #b44a4a;
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .solution-card .problem-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .solution-card .divider {
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
     }
 
     .solution-card .our-fix {
-      font-size: 0.78rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #4f46e5;
-      margin-bottom: 0.25rem;
-      margin-top: 1rem;
+      letter-spacing: 0.15em;
+      color: var(--warm);
+      margin-bottom: 0.35rem;
     }
 
     .solution-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: #1a1a2e;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
     }
 
-    .solution-card p {
-      font-size: 0.92rem;
-      color: #4a4a68;
-      line-height: 1.55;
+    .solution-card p:last-child {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    /* ── Skepticism ── */
+    /* ── Skepticism (cream bg) ── */
     .skepticism {
-      background: #1a1a2e;
-      color: #fff;
+      background: var(--cream);
+      color: var(--ink);
     }
 
-    .skepticism .section-label {
-      color: #a5b4fc;
+    .skepticism .eyebrow-label {
+      color: var(--accent);
     }
 
-    .skepticism .section-heading {
-      color: #fff;
+    .skepticism .eyebrow-label::before {
+      background: var(--accent);
     }
 
-    .skepticism .section-sub {
-      color: #b0b0c8;
+    .skepticism .section-title {
+      color: var(--ink);
+    }
+
+    .skepticism .section-desc {
+      color: var(--text-dark);
     }
 
     .objection-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
       max-width: 1100px;
     }
 
     .objection-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.75rem;
+      padding-left: 2rem;
+      border-left: 2px solid var(--accent);
     }
 
     .objection-card .objection {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #f8a0a0;
-      margin-bottom: 0.75rem;
+      font-family: var(--serif);
+      font-size: 1.1rem;
       font-style: italic;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
-    .objection-card .objection::before {
-      content: '\201C';
+    .objection-card p:last-child {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      opacity: 0.8;
     }
 
-    .objection-card .objection::after {
-      content: '\201D';
-    }
-
-    .objection-card p {
-      font-size: 0.92rem;
-      color: #c8c8e0;
-      line-height: 1.6;
-    }
-
-    /* ── Timeline ── */
+    /* ── Timeline (dark bg) ── */
     .timeline-section {
-      background: #fff;
+      background: var(--ink);
+    }
+
+    .timeline-section .eyebrow-label {
+      color: var(--warm);
+    }
+
+    .timeline-section .eyebrow-label::before {
+      background: var(--warm);
+    }
+
+    .timeline-section .section-title {
+      color: var(--cream);
+    }
+
+    .timeline-section .section-desc {
+      color: var(--text);
     }
 
     .timeline {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
       max-width: 1100px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 1.1rem;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent), var(--warm));
     }
 
     .timeline-block {
+      padding: 3rem 2rem 0 0;
       position: relative;
-      padding: 2rem;
-      background: #f8f8ff;
-      border: 1px solid #e8e8ef;
-      border-radius: 12px;
+    }
+
+    .timeline-block::before {
+      content: '';
+      position: absolute;
+      top: 0.55rem;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background: var(--ink);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
     }
 
     .timeline-block .day-label {
-      display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #4f46e5;
-      background: #e0e7ff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
       margin-bottom: 1rem;
+      padding-top: 1.5rem;
     }
 
     .timeline-block h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-block p {
-      font-size: 0.92rem;
-      color: #4a4a68;
-      line-height: 1.55;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1rem;
     }
 
     .timeline-block ul {
@@ -354,53 +538,96 @@
     }
 
     .timeline-block ul li {
-      font-size: 0.92rem;
-      color: #4a4a68;
-      padding: 0.2rem 0;
-      padding-left: 1.1rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 0.3rem 0;
+      padding-left: 1rem;
       position: relative;
+      line-height: 1.55;
     }
 
     .timeline-block ul li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.6rem;
-      width: 6px;
-      height: 6px;
-      background: #4f46e5;
+      top: 0.7rem;
+      width: 4px;
+      height: 4px;
+      background: var(--warm);
       border-radius: 50%;
     }
 
-    /* ── ROI Calculator ── */
+    /* ── ROI Calculator (dark-light bg) ── */
     .roi-calculator {
-      background: #f8f8ff;
+      background: var(--ink-light);
+      position: relative;
+    }
+
+    .roi-calculator::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 60%;
+      background: radial-gradient(ellipse at top right, rgba(212, 165, 116, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .roi-calculator .eyebrow-label {
+      color: var(--warm);
+    }
+
+    .roi-calculator .eyebrow-label::before {
+      background: var(--warm);
+    }
+
+    .roi-calculator .section-title {
+      color: var(--cream);
+    }
+
+    .roi-calculator .section-desc {
+      color: var(--text);
     }
 
     .calc-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
       max-width: 1100px;
+      align-items: start;
     }
 
     .calc-inputs {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(200, 196, 188, 0.08);
+    }
+
+    .calc-inputs-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
     }
 
     .input-group label {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: #1a1a2e;
-      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 0.5rem;
     }
 
     .input-group label span {
       font-weight: 400;
-      color: #7a7a96;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text-muted);
     }
 
     .input-wrap {
@@ -411,24 +638,23 @@
 
     .input-wrap .prefix {
       position: absolute;
-      left: 0.85rem;
-      font-size: 0.95rem;
+      left: 1rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: #7a7a96;
+      color: var(--text-muted);
       pointer-events: none;
     }
 
     .input-wrap input {
       width: 100%;
-      font-family: inherit;
-      font-size: 1.05rem;
+      font-family: var(--sans);
+      font-size: 1.1rem;
       font-weight: 600;
-      color: #1a1a2e;
-      background: #fff;
-      border: 1px solid #d8d8e8;
-      border-radius: 8px;
-      padding: 0.75rem 0.85rem;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      color: var(--cream);
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid rgba(200, 196, 188, 0.12);
+      padding: 0.85rem 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .input-wrap input.has-prefix {
@@ -437,8 +663,8 @@
 
     .input-wrap input:focus {
       outline: none;
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232, 93, 58, 0.1);
     }
 
     .calc-results {
@@ -449,35 +675,34 @@
     }
 
     .result-card {
-      background: #fff;
-      border: 1px solid #e8e8ef;
-      border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1.75rem;
+      border: 1px solid rgba(200, 196, 188, 0.08);
     }
 
     .result-card.strong {
-      border-left: 3px solid #4f46e5;
+      border-color: var(--accent);
+      background: rgba(232, 93, 58, 0.04);
     }
 
     .result-card .card-label {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #7a7a96;
-      margin-bottom: 1rem;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
     }
 
     .result-card.strong .card-label {
-      color: #4f46e5;
+      color: var(--accent);
     }
 
     .result-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #f0f0f6;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(200, 196, 188, 0.06);
     }
 
     .result-row:last-child {
@@ -485,121 +710,146 @@
     }
 
     .result-row .label {
-      font-size: 0.85rem;
-      color: #4a4a68;
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
 
     .result-row .value {
       font-size: 1rem;
       font-weight: 700;
-      color: #1a1a2e;
+      color: var(--cream);
     }
 
     .result-row.highlight .value {
-      color: #4f46e5;
-      font-size: 1.1rem;
+      color: var(--accent);
+      font-size: 1.15rem;
     }
 
     .copy-row {
       grid-column: 1 / -1;
       text-align: center;
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
     }
 
     .btn-copy {
       display: inline-block;
-      font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #4f46e5;
-      background: #e0e7ff;
-      border: none;
-      padding: 0.75rem 1.75rem;
-      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      background: transparent;
+      border: 1px solid rgba(245, 240, 232, 0.2);
+      padding: 0.85rem 2rem;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      transition: all 0.3s ease;
     }
 
     .btn-copy:hover {
-      background: #c7d2fe;
-      transform: translateY(-1px);
+      background: var(--cream);
+      color: var(--ink);
     }
 
     .btn-copy.copied {
-      background: #10b981;
-      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--ink);
     }
 
     .calc-footnote {
       grid-column: 1 / -1;
-      font-size: 0.82rem;
-      color: #7a7a96;
+      font-size: 0.78rem;
+      color: var(--text-muted);
       text-align: center;
       margin-top: 0.25rem;
     }
 
-    @media (max-width: 840px) {
-      .calc-layout {
-        grid-template-columns: 1fr;
-      }
-      .calc-results {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ── CTA ── */
+    /* ── CTA (cream bg) ── */
     .cta {
+      background: var(--cream);
       text-align: center;
-      background: linear-gradient(168deg, #eef2ff 0%, #f8f8ff 100%);
-      padding: 5rem 6%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .cta .section-heading {
+    .cta .eyebrow-label {
+      color: var(--accent);
+      justify-content: center;
+    }
+
+    .cta .eyebrow-label::before {
+      background: var(--accent);
+    }
+
+    .cta .section-title {
+      color: var(--ink);
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .cta .section-sub {
+    .cta .section-desc {
+      color: var(--text-dark);
+      max-width: 520px;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 2.25rem;
+    }
+
+    .cta .btn-primary {
+      margin-bottom: 2rem;
     }
 
     .cta-details {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 3rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
     }
 
     .cta-detail {
-      font-size: 0.88rem;
-      color: #4a4a68;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      opacity: 0.7;
     }
 
     .cta-detail strong {
-      color: #1a1a2e;
+      color: var(--ink);
+      font-weight: 700;
+      opacity: 1;
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 2rem 6%;
-      font-size: 0.85rem;
-      color: #8888a0;
-      background: #1a1a2e;
+      padding: 2.5rem 5%;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--ink);
+      border-top: 1px solid rgba(200, 196, 188, 0.06);
     }
 
     /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .pain-grid { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .objection-grid { grid-template-columns: 1fr; }
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .timeline::before { display: none; }
+      .timeline-block::before { display: none; }
+      .timeline-block { padding: 0; padding-left: 1.5rem; border-left: 2px solid var(--accent); }
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-results { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 640px) {
-      .hero { padding: 4rem 6% 3.5rem; }
-      section { padding: 3.5rem 6%; }
-      .pain-grid,
-      .solution-grid,
-      .objection-grid,
-      .timeline { grid-template-columns: 1fr; }
-      .cta-details { flex-direction: column; align-items: center; gap: 0.5rem; }
+      .section-pad { padding: 4.5rem 5%; }
+      .hero { padding: 7rem 5% 4rem; }
+      .cta-details { flex-direction: column; align-items: center; gap: 0.6rem; }
     }
   </style>
 </head>
@@ -607,26 +857,30 @@
 
   <!-- Navigation -->
   <nav>
-    <a href="#" class="logo">The Lopez <span>Group</span></a>
+    <a href="#" class="logo">The Lopez Group</a>
     <a href="#contact" class="cta-link">Book a Strategy Call</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="badge">For B2B SaaS Marketing Leaders</div>
-    <h1>You own the pipeline number. We help you hit it.</h1>
-    <p>The Lopez Group is a digital marketing agency for VPs and Directors of Marketing at B2B SaaS companies who are done with vanity metrics and need programs that tie directly to revenue.</p>
-    <a href="#contact" class="btn-primary">See If We're a Fit</a>
-    <p class="hero-note">30-minute call. No pitch deck. Just a pipeline conversation.</p>
+    <p class="eyebrow">For B2B SaaS Marketing Leaders</p>
+    <h1>You own the pipeline number. We help you <em>hit it.</em></h1>
+    <p class="hero-text">The Lopez Group is a digital marketing agency for VPs and Directors of Marketing at B2B SaaS companies who are done with vanity metrics and need programs that tie directly to revenue.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">See If We're a Fit</a>
+      <span class="hero-note">30-minute call. No pitch deck. Just a pipeline conversation.</span>
+    </div>
   </section>
 
   <!-- Pain Points -->
-  <section class="pain-points">
-    <p class="section-label">Sound Familiar?</p>
-    <h2 class="section-heading">You're juggling five jobs, and the board only cares about one number.</h2>
-    <p class="section-sub">You don't need another agency that "does digital." You need someone who understands what you're actually dealing with.</p>
+  <section class="pain-points section-pad">
+    <div class="reveal">
+      <p class="eyebrow-label">Sound Familiar?</p>
+      <h2 class="section-title">You're juggling five jobs, and the board only cares about one number.</h2>
+      <p class="section-desc">You don't need another agency that "does digital." You need someone who understands what you're actually dealing with.</p>
+    </div>
 
-    <div class="pain-grid">
+    <div class="pain-grid reveal">
       <div class="pain-card">
         <p class="pain-q">My attribution is a mess. I can't connect spend to closed-won.</p>
         <p>Multiple tools, incomplete data, and no single source of truth. Your CRM says one thing, your ad platform says another, and the CFO trusts neither.</p>
@@ -647,36 +901,42 @@
   </section>
 
   <!-- How We Solve It -->
-  <section class="solutions">
-    <p class="section-label">How We Solve It</p>
-    <h2 class="section-heading">Every engagement is built around your ICP, your pipeline stages, and your revenue targets.</h2>
-    <p class="section-sub">We don't hand you a media plan and disappear. We plug into your stack, your Slack, and your Monday pipeline review.</p>
+  <section class="solutions section-pad">
+    <div class="reveal">
+      <p class="eyebrow-label">How We Solve It</p>
+      <h2 class="section-title">Every engagement is built around your ICP, your pipeline stages, and your revenue targets.</h2>
+      <p class="section-desc">We don't hand you a media plan and disappear. We plug into your stack, your Slack, and your Monday pipeline review.</p>
+    </div>
 
-    <div class="solution-grid">
+    <div class="solution-grid reveal">
       <div class="solution-card">
         <p class="your-problem">Your problem</p>
-        <h3>Pipeline is unpredictable and depends on one-off campaigns</h3>
+        <p class="problem-text">Pipeline is unpredictable and depends on one-off campaigns</p>
+        <div class="divider"></div>
         <p class="our-fix">What we do</p>
         <h3>Demand Generation &amp; ABM</h3>
         <p>Paid media, content syndication, and account-based programs designed around your ICP and sales cycle. We build a repeatable engine&mdash;not a campaign calendar you have to babysit.</p>
       </div>
       <div class="solution-card">
         <p class="your-problem">Your problem</p>
-        <h3>You're invisible when buyers are actively evaluating</h3>
+        <p class="problem-text">You're invisible when buyers are actively evaluating</p>
+        <div class="divider"></div>
         <p class="our-fix">What we do</p>
         <h3>SEO &amp; Content Strategy</h3>
         <p>Search-driven content that captures high-intent buyers at the exact moment they're Googling solutions like yours. We target the keywords your competitors are already ranking for.</p>
       </div>
       <div class="solution-card">
         <p class="your-problem">Your problem</p>
-        <h3>Attribution is broken and no one trusts the numbers</h3>
+        <p class="problem-text">Attribution is broken and no one trusts the numbers</p>
+        <div class="divider"></div>
         <p class="our-fix">What we do</p>
         <h3>Marketing Ops &amp; Attribution</h3>
         <p>We fix your CRM hygiene, build multi-touch attribution models, and create dashboards that connect every marketing dollar to pipeline created and closed-won revenue. Finally, one source of truth.</p>
       </div>
       <div class="solution-card">
         <p class="your-problem">Your problem</p>
-        <h3>Traffic is up but demo requests aren't</h3>
+        <p class="problem-text">Traffic is up but demo requests aren't</p>
+        <div class="divider"></div>
         <p class="our-fix">What we do</p>
         <h3>Conversion &amp; Web Optimization</h3>
         <p>Landing pages, A/B tests, and conversion rate optimization that turn traffic into sales conversations. We measure demo requests and SQLs, not bounce rates.</p>
@@ -685,12 +945,14 @@
   </section>
 
   <!-- Skepticism -->
-  <section class="skepticism">
-    <p class="section-label">We Know What You're Thinking</p>
-    <h2 class="section-heading">You've been burned by agencies before. Let's talk about that.</h2>
-    <p class="section-sub">We've heard every objection because our clients had them too&mdash;before they became clients.</p>
+  <section class="skepticism section-pad">
+    <div class="reveal">
+      <p class="eyebrow-label">We Know What You're Thinking</p>
+      <h2 class="section-title">You've been burned by agencies before. Let's talk about that.</h2>
+      <p class="section-desc">We've heard every objection because our clients had them too&mdash;before they became clients.</p>
+    </div>
 
-    <div class="objection-grid">
+    <div class="objection-grid reveal">
       <div class="objection-card">
         <p class="objection">The last agency gave us impressions and a 40-page PDF every month. Nothing moved.</p>
         <p>We share live dashboards, not slide decks. You see pipeline sourced, pipeline influenced, and CAC payback&mdash;updated in real time. Every weekly sync starts with revenue metrics, not reach.</p>
@@ -711,12 +973,14 @@
   </section>
 
   <!-- Timeline -->
-  <section class="timeline-section">
-    <p class="section-label">What The First 90 Days Look Like</p>
-    <h2 class="section-heading">Fast enough to show early wins. Thorough enough to build a real engine.</h2>
-    <p class="section-sub">No six-month "discovery phase." We move fast because you're reporting to a board, not a suggestion box.</p>
+  <section class="timeline-section section-pad">
+    <div class="reveal">
+      <p class="eyebrow-label">The First 90 Days</p>
+      <h2 class="section-title">Fast enough to show early wins. Thorough enough to build a real engine.</h2>
+      <p class="section-desc">No six-month "discovery phase." We move fast because you're reporting to a board, not a suggestion box.</p>
+    </div>
 
-    <div class="timeline">
+    <div class="timeline reveal">
       <div class="timeline-block">
         <div class="day-label">Days 1&ndash;14</div>
         <h3>Audit &amp; Quick Wins</h3>
@@ -751,15 +1015,18 @@
   </section>
 
   <!-- ROI Calculator -->
-  <section class="roi-calculator" id="roi-calculator">
-    <p class="section-label">Calculate Your ROI</p>
-    <h2 class="section-heading">Run the numbers before the call. Then send them to your CFO.</h2>
-    <p class="section-sub">Plug in your real numbers. The projections update instantly. When you're ready, copy the business case and paste it straight into Slack or email.</p>
+  <section class="roi-calculator section-pad" id="roi-calculator">
+    <div class="reveal">
+      <p class="eyebrow-label">Calculate Your ROI</p>
+      <h2 class="section-title">Run the numbers before the call. Then send them to your CFO.</h2>
+      <p class="section-desc">Plug in your real numbers. The projections update instantly. When you're ready, copy the business case and paste it straight into Slack or email.</p>
+    </div>
 
-    <div class="calc-layout">
+    <div class="calc-layout reveal">
       <div class="calc-inputs">
+        <p class="calc-inputs-title">Your numbers</p>
         <div class="input-group">
-          <label>Monthly marketing spend <span>(your current budget)</span></label>
+          <label>Monthly marketing spend <span>(current budget)</span></label>
           <div class="input-wrap">
             <span class="prefix">$</span>
             <input type="text" id="roi-spend" class="has-prefix" value="50,000" inputmode="numeric">
@@ -791,39 +1058,39 @@
         <div class="result-card">
           <div class="card-label">Conservative (3x)</div>
           <div class="result-row">
-            <span class="label">New revenue / quarter</span>
-            <span class="value" id="con-revenue">—</span>
+            <span class="label">New revenue / qtr</span>
+            <span class="value" id="con-revenue">&mdash;</span>
           </div>
           <div class="result-row">
             <span class="label">Additional deals</span>
-            <span class="value" id="con-deals">—</span>
+            <span class="value" id="con-deals">&mdash;</span>
           </div>
           <div class="result-row">
             <span class="label">Net ROI</span>
-            <span class="value" id="con-net">—</span>
+            <span class="value" id="con-net">&mdash;</span>
           </div>
           <div class="result-row highlight">
             <span class="label">ROI</span>
-            <span class="value" id="con-pct">—</span>
+            <span class="value" id="con-pct">&mdash;</span>
           </div>
         </div>
         <div class="result-card strong">
           <div class="card-label">Strong (5x)</div>
           <div class="result-row">
-            <span class="label">New revenue / quarter</span>
-            <span class="value" id="str-revenue">—</span>
+            <span class="label">New revenue / qtr</span>
+            <span class="value" id="str-revenue">&mdash;</span>
           </div>
           <div class="result-row">
             <span class="label">Additional deals</span>
-            <span class="value" id="str-deals">—</span>
+            <span class="value" id="str-deals">&mdash;</span>
           </div>
           <div class="result-row">
             <span class="label">Net ROI</span>
-            <span class="value" id="str-net">—</span>
+            <span class="value" id="str-net">&mdash;</span>
           </div>
           <div class="result-row highlight">
             <span class="label">ROI</span>
-            <span class="value" id="str-pct">—</span>
+            <span class="value" id="str-pct">&mdash;</span>
           </div>
         </div>
         <div class="copy-row">
@@ -835,15 +1102,17 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contact">
-    <p class="section-label">Let's Talk Pipeline</p>
-    <h2 class="section-heading">30 minutes. No pitch deck. Just an honest conversation about your pipeline targets.</h2>
-    <p class="section-sub">We'll review your current digital footprint, identify the biggest gaps, and tell you straight whether we can help. If we're not the right fit, we'll tell you that too.</p>
-    <a href="mailto:hello@thelopezgroup.com" class="btn-primary">Book a Strategy Call</a>
-    <div class="cta-details">
-      <span class="cta-detail"><strong>Who:</strong> VPs &amp; Directors of Marketing</span>
-      <span class="cta-detail"><strong>Stage:</strong> $10M&ndash;$150M ARR SaaS</span>
-      <span class="cta-detail"><strong>Timeline:</strong> First campaigns live in 2 weeks</span>
+  <section class="cta section-pad" id="contact">
+    <div class="reveal">
+      <p class="eyebrow-label">Let's Talk Pipeline</p>
+      <h2 class="section-title">30 minutes. No pitch deck. Just an honest conversation about your pipeline targets.</h2>
+      <p class="section-desc">We'll review your current digital footprint, identify the biggest gaps, and tell you straight whether we can help. If we're not the right fit, we'll tell you that too.</p>
+      <a href="mailto:hello@thelopezgroup.com" class="btn-primary">Book a Strategy Call</a>
+      <div class="cta-details">
+        <span class="cta-detail"><strong>Who:</strong> VPs &amp; Directors of Marketing</span>
+        <span class="cta-detail"><strong>Stage:</strong> $10M&ndash;$150M ARR SaaS</span>
+        <span class="cta-detail"><strong>Timeline:</strong> First campaigns live in 2 weeks</span>
+      </div>
     </div>
   </section>
 
@@ -853,6 +1122,25 @@
   </footer>
 
   <script>
+    /* ── Scroll reveal ── */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach(function (el, i) {
+        el.style.transitionDelay = (i % 2 === 1 ? '0.15s' : '0s');
+        observer.observe(el);
+      });
+    })();
+
+    /* ── ROI Calculator ── */
     (function () {
       var spendEl = document.getElementById('roi-spend');
       var acvEl = document.getElementById('roi-acv');
