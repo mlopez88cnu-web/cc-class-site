@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Lopez Group | B2B Digital Marketing Agency</title>
+  <title>The Lopez Group | Pipeline Growth for B2B SaaS Marketing Leaders</title>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -87,14 +87,14 @@
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      max-width: 780px;
+      max-width: 820px;
       margin-bottom: 1.25rem;
     }
 
     .hero p {
       font-size: 1.15rem;
       color: #4a4a68;
-      max-width: 600px;
+      max-width: 620px;
       margin-bottom: 2.25rem;
     }
 
@@ -116,6 +116,12 @@
       transform: translateY(-1px);
     }
 
+    .hero-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #7a7a96;
+    }
+
     /* ── Section defaults ── */
     section {
       padding: 5rem 6%;
@@ -135,137 +141,445 @@
       font-weight: 800;
       letter-spacing: -0.025em;
       margin-bottom: 1rem;
-      max-width: 620px;
+      max-width: 660px;
     }
 
     .section-sub {
       font-size: 1.05rem;
       color: #4a4a68;
-      max-width: 600px;
+      max-width: 620px;
       margin-bottom: 3rem;
     }
 
-    /* ── What We Do ── */
-    .what-we-do {
+    /* ── Pain Points ── */
+    .pain-points {
       background: #fff;
     }
 
-    .card-grid {
+    .pain-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+    }
+
+    .pain-card {
+      background: #fef8f8;
+      border: 1px solid #f0dede;
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .pain-card .pain-q {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .pain-card .pain-q::before {
+      content: '\201C';
+    }
+
+    .pain-card .pain-q::after {
+      content: '\201D';
+    }
+
+    .pain-card p {
+      font-size: 0.92rem;
+      color: #6a4a4a;
+      line-height: 1.55;
+    }
+
+    /* ── How We Solve It ── */
+    .solutions {
+      background: #f8f8ff;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.75rem;
       max-width: 1100px;
     }
 
-    .card {
-      background: #f8f8ff;
+    .solution-card {
+      background: #fff;
       border: 1px solid #e8e8ef;
       border-radius: 12px;
       padding: 2rem;
       transition: box-shadow 0.2s, transform 0.15s;
     }
 
-    .card:hover {
+    .solution-card:hover {
       box-shadow: 0 8px 28px rgba(79, 70, 229, 0.1);
       transform: translateY(-3px);
     }
 
-    .card .icon {
-      font-size: 1.75rem;
+    .solution-card .your-problem {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #b44a4a;
+      margin-bottom: 0.25rem;
+    }
+
+    .solution-card .our-fix {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #4f46e5;
+      margin-bottom: 0.25rem;
+      margin-top: 1rem;
+    }
+
+    .solution-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #1a1a2e;
+    }
+
+    .solution-card p {
+      font-size: 0.92rem;
+      color: #4a4a68;
+      line-height: 1.55;
+    }
+
+    /* ── Skepticism ── */
+    .skepticism {
+      background: #1a1a2e;
+      color: #fff;
+    }
+
+    .skepticism .section-label {
+      color: #a5b4fc;
+    }
+
+    .skepticism .section-heading {
+      color: #fff;
+    }
+
+    .skepticism .section-sub {
+      color: #b0b0c8;
+    }
+
+    .objection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      max-width: 1100px;
+    }
+
+    .objection-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .objection-card .objection {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f8a0a0;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .objection-card .objection::before {
+      content: '\201C';
+    }
+
+    .objection-card .objection::after {
+      content: '\201D';
+    }
+
+    .objection-card p {
+      font-size: 0.92rem;
+      color: #c8c8e0;
+      line-height: 1.6;
+    }
+
+    /* ── Timeline ── */
+    .timeline-section {
+      background: #fff;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+      max-width: 1100px;
+    }
+
+    .timeline-block {
+      position: relative;
+      padding: 2rem;
+      background: #f8f8ff;
+      border: 1px solid #e8e8ef;
+      border-radius: 12px;
+    }
+
+    .timeline-block .day-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4f46e5;
+      background: #e0e7ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
       margin-bottom: 1rem;
     }
 
-    .card h3 {
-      font-size: 1.15rem;
+    .timeline-block h3 {
+      font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
-    .card p {
-      font-size: 0.95rem;
+    .timeline-block p {
+      font-size: 0.92rem;
       color: #4a4a68;
+      line-height: 1.55;
     }
 
-    /* ── Why It Matters ── */
-    .why-it-matters {
+    .timeline-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-block ul li {
+      font-size: 0.92rem;
+      color: #4a4a68;
+      padding: 0.2rem 0;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .timeline-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      background: #4f46e5;
+      border-radius: 50%;
+    }
+
+    /* ── ROI Calculator ── */
+    .roi-calculator {
       background: #f8f8ff;
     }
 
-    .reasons {
+    .calc-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
       max-width: 1100px;
     }
 
-    .reason {
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 0.35rem;
+    }
+
+    .input-group label span {
+      font-weight: 400;
+      color: #7a7a96;
+    }
+
+    .input-wrap {
       position: relative;
-      padding-left: 1.75rem;
+      display: flex;
+      align-items: center;
     }
 
-    .reason::before {
-      content: '';
+    .input-wrap .prefix {
       position: absolute;
-      left: 0;
-      top: 0.25rem;
-      width: 4px;
-      height: 100%;
-      background: #4f46e5;
-      border-radius: 4px;
-    }
-
-    .reason h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-
-    .reason p {
+      left: 0.85rem;
       font-size: 0.95rem;
+      font-weight: 600;
+      color: #7a7a96;
+      pointer-events: none;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      background: #fff;
+      border: 1px solid #d8d8e8;
+      border-radius: 8px;
+      padding: 0.75rem 0.85rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .input-wrap input.has-prefix {
+      padding-left: 2rem;
+    }
+
+    .input-wrap input:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      align-content: start;
+    }
+
+    .result-card {
+      background: #fff;
+      border: 1px solid #e8e8ef;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .result-card.strong {
+      border-left: 3px solid #4f46e5;
+    }
+
+    .result-card .card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7a7a96;
+      margin-bottom: 1rem;
+    }
+
+    .result-card.strong .card-label {
+      color: #4f46e5;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f6;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-row .label {
+      font-size: 0.85rem;
       color: #4a4a68;
+    }
+
+    .result-row .value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .result-row.highlight .value {
+      color: #4f46e5;
+      font-size: 1.1rem;
+    }
+
+    .copy-row {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-copy {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #4f46e5;
+      background: #e0e7ff;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-copy:hover {
+      background: #c7d2fe;
+      transform: translateY(-1px);
+    }
+
+    .btn-copy.copied {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .calc-footnote {
+      grid-column: 1 / -1;
+      font-size: 0.82rem;
+      color: #7a7a96;
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 840px) {
+      .calc-layout {
+        grid-template-columns: 1fr;
+      }
+      .calc-results {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── CTA ── */
     .cta {
       text-align: center;
-      background: #1a1a2e;
-      color: #fff;
+      background: linear-gradient(168deg, #eef2ff 0%, #f8f8ff 100%);
       padding: 5rem 6%;
     }
 
-    .cta .section-label {
-      color: #a5b4fc;
-    }
-
     .cta .section-heading {
-      color: #fff;
       margin-left: auto;
       margin-right: auto;
     }
 
     .cta .section-sub {
-      color: #b0b0c8;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 2.25rem;
     }
 
-    .btn-light {
-      display: inline-block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a1a2e;
-      background: #fff;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    .cta-details {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
 
-    .btn-light:hover {
-      background: #e0e7ff;
-      transform: translateY(-1px);
+    .cta-detail {
+      font-size: 0.88rem;
+      color: #4a4a68;
+    }
+
+    .cta-detail strong {
+      color: #1a1a2e;
     }
 
     /* ── Footer ── */
@@ -274,14 +588,18 @@
       padding: 2rem 6%;
       font-size: 0.85rem;
       color: #8888a0;
-      background: #16162a;
+      background: #1a1a2e;
     }
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .hero { padding: 4rem 6% 3.5rem; }
       section { padding: 3.5rem 6%; }
-      .card-grid, .reasons { grid-template-columns: 1fr; }
+      .pain-grid,
+      .solution-grid,
+      .objection-grid,
+      .timeline { grid-template-columns: 1fr; }
+      .cta-details { flex-direction: column; align-items: center; gap: 0.5rem; }
     }
   </style>
 </head>
@@ -290,81 +608,383 @@
   <!-- Navigation -->
   <nav>
     <a href="#" class="logo">The Lopez <span>Group</span></a>
-    <a href="#contact" class="cta-link">Get in Touch</a>
+    <a href="#contact" class="cta-link">Book a Strategy Call</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="badge">B2B Digital Marketing Agency</div>
-    <h1>Pipeline growth your CFO will actually believe in.</h1>
-    <p>The Lopez Group helps B2B marketing leaders turn digital channels into predictable, measurable revenue engines&mdash;so you can report results, not excuses.</p>
-    <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+    <div class="badge">For B2B SaaS Marketing Leaders</div>
+    <h1>You own the pipeline number. We help you hit it.</h1>
+    <p>The Lopez Group is a digital marketing agency for VPs and Directors of Marketing at B2B SaaS companies who are done with vanity metrics and need programs that tie directly to revenue.</p>
+    <a href="#contact" class="btn-primary">See If We're a Fit</a>
+    <p class="hero-note">30-minute call. No pitch deck. Just a pipeline conversation.</p>
   </section>
 
-  <!-- What We Do -->
-  <section class="what-we-do">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-heading">Full-funnel digital marketing built for complex B2B sales cycles.</h2>
-    <p class="section-sub">We don't do cookie-cutter campaigns. Every engagement is designed around your ICP, your pipeline stages, and your revenue targets.</p>
+  <!-- Pain Points -->
+  <section class="pain-points">
+    <p class="section-label">Sound Familiar?</p>
+    <h2 class="section-heading">You're juggling five jobs, and the board only cares about one number.</h2>
+    <p class="section-sub">You don't need another agency that "does digital." You need someone who understands what you're actually dealing with.</p>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="icon">&#9678;</div>
-        <h3>Demand Generation</h3>
-        <p>Paid media, content syndication, and ABM programs that fill your pipeline with qualified opportunities&mdash;not vanity leads.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <p class="pain-q">My attribution is a mess. I can't connect spend to closed-won.</p>
+        <p>Multiple tools, incomplete data, and no single source of truth. Your CRM says one thing, your ad platform says another, and the CFO trusts neither.</p>
       </div>
-      <div class="card">
-        <div class="icon">&#9670;</div>
-        <h3>SEO &amp; Content Strategy</h3>
-        <p>Search-driven content that captures high-intent buyers at the moment they're evaluating solutions like yours.</p>
+      <div class="pain-card">
+        <p class="pain-q">My team is running paid, organic, events, content, ops, AND web.</p>
+        <p>Headcount is frozen but expectations aren't. You need senior-level execution across channels without three new reqs sitting in your ATS for months.</p>
       </div>
-      <div class="card">
-        <div class="icon">&#9672;</div>
-        <h3>Marketing Ops &amp; Analytics</h3>
-        <p>Attribution modeling, CRM hygiene, and dashboards that connect every marketing dollar to closed-won revenue.</p>
+      <div class="pain-card">
+        <p class="pain-q">Sales says our leads are garbage. We say they don't follow up.</p>
+        <p>Without shared data and a single pipeline view, the finger-pointing never stops. And it's your credibility on the line at the next QBR.</p>
       </div>
-      <div class="card">
-        <div class="icon">&#10022;</div>
-        <h3>Conversion &amp; Web</h3>
-        <p>Landing pages, A/B testing, and website optimization that turn traffic into demo requests and sales conversations.</p>
+      <div class="pain-card">
+        <p class="pain-q">CAC is climbing and the board wants efficient growth yesterday.</p>
+        <p>Every dollar needs justification. You can't afford another quarter of "brand awareness" without pipeline to show for it.</p>
       </div>
     </div>
   </section>
 
-  <!-- Why It Matters -->
-  <section class="why-it-matters">
-    <p class="section-label">Why It Matters</p>
-    <h2 class="section-heading">Built for the problems VPs of Marketing actually face.</h2>
-    <p class="section-sub">You're under pressure to prove ROI, hit pipeline targets, and scale without ballooning headcount. We get it.</p>
+  <!-- How We Solve It -->
+  <section class="solutions">
+    <p class="section-label">How We Solve It</p>
+    <h2 class="section-heading">Every engagement is built around your ICP, your pipeline stages, and your revenue targets.</h2>
+    <p class="section-sub">We don't hand you a media plan and disappear. We plug into your stack, your Slack, and your Monday pipeline review.</p>
 
-    <div class="reasons">
-      <div class="reason">
-        <h3>Revenue attribution, not vanity metrics</h3>
-        <p>We measure what matters: pipeline created, influenced revenue, and CAC payback. Every report ties back to dollars, not impressions.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <p class="your-problem">Your problem</p>
+        <h3>Pipeline is unpredictable and depends on one-off campaigns</h3>
+        <p class="our-fix">What we do</p>
+        <h3>Demand Generation &amp; ABM</h3>
+        <p>Paid media, content syndication, and account-based programs designed around your ICP and sales cycle. We build a repeatable engine&mdash;not a campaign calendar you have to babysit.</p>
       </div>
-      <div class="reason">
-        <h3>An extension of your team, not a black box</h3>
-        <p>You get a dedicated strategist, shared Slack channels, and full visibility into what's running and why. No mystery, no hand-waving.</p>
+      <div class="solution-card">
+        <p class="your-problem">Your problem</p>
+        <h3>You're invisible when buyers are actively evaluating</h3>
+        <p class="our-fix">What we do</p>
+        <h3>SEO &amp; Content Strategy</h3>
+        <p>Search-driven content that captures high-intent buyers at the exact moment they're Googling solutions like yours. We target the keywords your competitors are already ranking for.</p>
       </div>
-      <div class="reason">
-        <h3>Speed without the hiring risk</h3>
-        <p>Spin up campaigns in days, not quarters. Get senior-level execution across paid, organic, and ops without three new headcount reqs.</p>
+      <div class="solution-card">
+        <p class="your-problem">Your problem</p>
+        <h3>Attribution is broken and no one trusts the numbers</h3>
+        <p class="our-fix">What we do</p>
+        <h3>Marketing Ops &amp; Attribution</h3>
+        <p>We fix your CRM hygiene, build multi-touch attribution models, and create dashboards that connect every marketing dollar to pipeline created and closed-won revenue. Finally, one source of truth.</p>
+      </div>
+      <div class="solution-card">
+        <p class="your-problem">Your problem</p>
+        <h3>Traffic is up but demo requests aren't</h3>
+        <p class="our-fix">What we do</p>
+        <h3>Conversion &amp; Web Optimization</h3>
+        <p>Landing pages, A/B tests, and conversion rate optimization that turn traffic into sales conversations. We measure demo requests and SQLs, not bounce rates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skepticism -->
+  <section class="skepticism">
+    <p class="section-label">We Know What You're Thinking</p>
+    <h2 class="section-heading">You've been burned by agencies before. Let's talk about that.</h2>
+    <p class="section-sub">We've heard every objection because our clients had them too&mdash;before they became clients.</p>
+
+    <div class="objection-grid">
+      <div class="objection-card">
+        <p class="objection">The last agency gave us impressions and a 40-page PDF every month. Nothing moved.</p>
+        <p>We share live dashboards, not slide decks. You see pipeline sourced, pipeline influenced, and CAC payback&mdash;updated in real time. Every weekly sync starts with revenue metrics, not reach.</p>
+      </div>
+      <div class="objection-card">
+        <p class="objection">I can't justify another vendor to my CFO right now.</p>
+        <p>We'll model the ROI before you sign anything. Our clients typically see 3&ndash;5x return within the first two quarters. We'll build you a business case with numbers your CFO will actually buy.</p>
+      </div>
+      <div class="objection-card">
+        <p class="objection">My team can handle this. We just need more bandwidth.</p>
+        <p>We're not here to replace your team. We fill the gaps&mdash;paid, ops, analytics&mdash;so your people can focus on strategy and the work only they can do. Think of us as the senior hires you can't wait six months to onboard.</p>
+      </div>
+      <div class="objection-card">
+        <p class="objection">How long until I actually see results?</p>
+        <p>Quick wins in the first 30 days: audit, low-hanging fruit, campaigns live. Measurable pipeline impact by day 90. We'll give you a 30/60/90 plan before we start so you know exactly what to expect and when.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <p class="section-label">What The First 90 Days Look Like</p>
+    <h2 class="section-heading">Fast enough to show early wins. Thorough enough to build a real engine.</h2>
+    <p class="section-sub">No six-month "discovery phase." We move fast because you're reporting to a board, not a suggestion box.</p>
+
+    <div class="timeline">
+      <div class="timeline-block">
+        <div class="day-label">Days 1&ndash;14</div>
+        <h3>Audit &amp; Quick Wins</h3>
+        <ul>
+          <li>Full audit of your paid, organic, and ops stack</li>
+          <li>Attribution model review and gap analysis</li>
+          <li>Identify low-hanging fruit for immediate pipeline impact</li>
+          <li>First campaigns built and ready to launch</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="day-label">Days 15&ndash;45</div>
+        <h3>Launch &amp; Optimize</h3>
+        <ul>
+          <li>Demand gen programs live across priority channels</li>
+          <li>CRM and attribution fixes implemented</li>
+          <li>Weekly syncs with shared pipeline dashboards</li>
+          <li>First qualified leads entering your pipeline</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="day-label">Days 46&ndash;90</div>
+        <h3>Scale &amp; Prove</h3>
+        <ul>
+          <li>Campaigns optimized based on real pipeline data</li>
+          <li>Board-ready reporting with sourced and influenced revenue</li>
+          <li>Clear CAC and ROI metrics you can defend to your CFO</li>
+          <li>Roadmap for Q2 and beyond, built on what's working</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Calculator -->
+  <section class="roi-calculator" id="roi-calculator">
+    <p class="section-label">Calculate Your ROI</p>
+    <h2 class="section-heading">Run the numbers before the call. Then send them to your CFO.</h2>
+    <p class="section-sub">Plug in your real numbers. The projections update instantly. When you're ready, copy the business case and paste it straight into Slack or email.</p>
+
+    <div class="calc-layout">
+      <div class="calc-inputs">
+        <div class="input-group">
+          <label>Monthly marketing spend <span>(your current budget)</span></label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="text" id="roi-spend" class="has-prefix" value="50,000" inputmode="numeric">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Average deal size <span>(ACV)</span></label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="text" id="roi-acv" class="has-prefix" value="40,000" inputmode="numeric">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Deals closed per quarter <span>(current)</span></label>
+          <div class="input-wrap">
+            <input type="text" id="roi-deals" value="10" inputmode="numeric">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Monthly agency retainer <span>(proposed)</span></label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="text" id="roi-retainer" class="has-prefix" value="15,000" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="result-card">
+          <div class="card-label">Conservative (3x)</div>
+          <div class="result-row">
+            <span class="label">New revenue / quarter</span>
+            <span class="value" id="con-revenue">—</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Additional deals</span>
+            <span class="value" id="con-deals">—</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Net ROI</span>
+            <span class="value" id="con-net">—</span>
+          </div>
+          <div class="result-row highlight">
+            <span class="label">ROI</span>
+            <span class="value" id="con-pct">—</span>
+          </div>
+        </div>
+        <div class="result-card strong">
+          <div class="card-label">Strong (5x)</div>
+          <div class="result-row">
+            <span class="label">New revenue / quarter</span>
+            <span class="value" id="str-revenue">—</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Additional deals</span>
+            <span class="value" id="str-deals">—</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Net ROI</span>
+            <span class="value" id="str-net">—</span>
+          </div>
+          <div class="result-row highlight">
+            <span class="label">ROI</span>
+            <span class="value" id="str-pct">—</span>
+          </div>
+        </div>
+        <div class="copy-row">
+          <button class="btn-copy" id="btn-copy">Copy Business Case</button>
+        </div>
+        <p class="calc-footnote">Based on 3&ndash;5x ROI observed across B2B SaaS clients in the $10M&ndash;$150M ARR range.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta" id="contact">
-    <p class="section-label">Ready to Talk?</p>
-    <h2 class="section-heading">Let's build a pipeline you can bet your board deck on.</h2>
-    <p class="section-sub">Book a 30-minute strategy call. We'll audit your current digital footprint and show you exactly where the growth is hiding.</p>
-    <a href="mailto:hello@thelopezgroup.com" class="btn-light">Book a Strategy Call</a>
+    <p class="section-label">Let's Talk Pipeline</p>
+    <h2 class="section-heading">30 minutes. No pitch deck. Just an honest conversation about your pipeline targets.</h2>
+    <p class="section-sub">We'll review your current digital footprint, identify the biggest gaps, and tell you straight whether we can help. If we're not the right fit, we'll tell you that too.</p>
+    <a href="mailto:hello@thelopezgroup.com" class="btn-primary">Book a Strategy Call</a>
+    <div class="cta-details">
+      <span class="cta-detail"><strong>Who:</strong> VPs &amp; Directors of Marketing</span>
+      <span class="cta-detail"><strong>Stage:</strong> $10M&ndash;$150M ARR SaaS</span>
+      <span class="cta-detail"><strong>Timeline:</strong> First campaigns live in 2 weeks</span>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
     &copy; 2026 The Lopez Group. All rights reserved.
   </footer>
+
+  <script>
+    (function () {
+      var spendEl = document.getElementById('roi-spend');
+      var acvEl = document.getElementById('roi-acv');
+      var dealsEl = document.getElementById('roi-deals');
+      var retainerEl = document.getElementById('roi-retainer');
+      var btnCopy = document.getElementById('btn-copy');
+
+      function parseNum(str) {
+        return parseFloat(str.replace(/[^0-9.]/g, '')) || 0;
+      }
+
+      function fmtCurrency(n) {
+        return '$' + Math.round(n).toLocaleString('en-US');
+      }
+
+      function fmtDeals(n) {
+        return n % 1 === 0 ? n.toString() : n.toFixed(1);
+      }
+
+      function fmtPct(n) {
+        return Math.round(n) + '%';
+      }
+
+      function formatInput(el) {
+        var raw = el.value.replace(/[^0-9]/g, '');
+        if (raw === '') { el.value = ''; return; }
+        el.value = parseInt(raw, 10).toLocaleString('en-US');
+      }
+
+      function calculate() {
+        var spend = parseNum(spendEl.value);
+        var acv = parseNum(acvEl.value);
+        var deals = parseNum(dealsEl.value);
+        var retainer = parseNum(retainerEl.value);
+        var qRetainer = retainer * 3;
+
+        if (qRetainer === 0 || acv === 0) {
+          var ids = ['con-revenue','con-deals','con-net','con-pct','str-revenue','str-deals','str-net','str-pct'];
+          ids.forEach(function (id) { document.getElementById(id).textContent = '\u2014'; });
+          return;
+        }
+
+        var conRev = qRetainer * 3;
+        var conDeals = conRev / acv;
+        var conNet = conRev - qRetainer;
+        var conPct = (conNet / qRetainer) * 100;
+
+        var strRev = qRetainer * 5;
+        var strDeals = strRev / acv;
+        var strNet = strRev - qRetainer;
+        var strPct = (strNet / qRetainer) * 100;
+
+        document.getElementById('con-revenue').textContent = fmtCurrency(conRev);
+        document.getElementById('con-deals').textContent = fmtDeals(conDeals);
+        document.getElementById('con-net').textContent = fmtCurrency(conNet);
+        document.getElementById('con-pct').textContent = fmtPct(conPct);
+
+        document.getElementById('str-revenue').textContent = fmtCurrency(strRev);
+        document.getElementById('str-deals').textContent = fmtDeals(strDeals);
+        document.getElementById('str-net').textContent = fmtCurrency(strNet);
+        document.getElementById('str-pct').textContent = fmtPct(strPct);
+      }
+
+      function buildSummary() {
+        var spend = parseNum(spendEl.value);
+        var acv = parseNum(acvEl.value);
+        var deals = parseNum(dealsEl.value);
+        var retainer = parseNum(retainerEl.value);
+        var qRetainer = retainer * 3;
+
+        var conRev = qRetainer * 3;
+        var conDeals = conRev / acv;
+        var conNet = conRev - qRetainer;
+        var conPct = Math.round(((conNet) / qRetainer) * 100);
+
+        var strRev = qRetainer * 5;
+        var strDeals = strRev / acv;
+        var strNet = strRev - qRetainer;
+        var strPct = Math.round(((strNet) / qRetainer) * 100);
+
+        var pad = function (s, len) {
+          while (s.length < len) s += ' ';
+          return s;
+        };
+
+        return [
+          'ROI Projection \u2014 The Lopez Group',
+          '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500',
+          '',
+          'Current state:',
+          '\u2022 Monthly marketing spend: ' + fmtCurrency(spend),
+          '\u2022 Average deal size: ' + fmtCurrency(acv),
+          '\u2022 Deals closed per quarter: ' + deals,
+          '',
+          'Proposed investment:',
+          '\u2022 Monthly retainer: ' + fmtCurrency(retainer) + ' (' + fmtCurrency(qRetainer) + '/quarter)',
+          '',
+          'Projected quarterly impact:',
+          '              ' + pad('Conservative', 16) + 'Strong',
+          'New revenue:  ' + pad(fmtCurrency(conRev), 16) + fmtCurrency(strRev),
+          'New deals:    ' + pad(fmtDeals(conDeals), 16) + fmtDeals(strDeals),
+          'Net ROI:      ' + pad(fmtCurrency(conNet), 16) + fmtCurrency(strNet),
+          'ROI:          ' + pad(conPct + '%', 16) + strPct + '%',
+          '',
+          'Based on 3\u20135x ROI observed across B2B SaaS clients',
+          'in the $10M\u2013$150M ARR range.',
+          '',
+          '\u2192 thelopezgroup.com'
+        ].join('\n');
+      }
+
+      [spendEl, acvEl, retainerEl].forEach(function (el) {
+        el.addEventListener('input', function () { formatInput(el); calculate(); });
+      });
+
+      dealsEl.addEventListener('input', function () { calculate(); });
+
+      btnCopy.addEventListener('click', function () {
+        var text = buildSummary();
+        navigator.clipboard.writeText(text).then(function () {
+          btnCopy.textContent = 'Copied!';
+          btnCopy.classList.add('copied');
+          setTimeout(function () {
+            btnCopy.textContent = 'Copy Business Case';
+            btnCopy.classList.remove('copied');
+          }, 2000);
+        });
+      });
+
+      calculate();
+    })();
+  </script>
 
 </body>
 </html>
